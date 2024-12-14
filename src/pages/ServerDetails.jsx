@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
 import Multiselect from 'multiselect-react-dropdown';
+import "./navbar.css"
 
+function ServerDetails({onDataChange}) {
 
-function ServerDetails() {
   const [ips, setIps] = useState([]);
   const [newIP, setnewIP] = useState([]);
   const [secList, setSecList] = useState([]);
@@ -20,11 +21,18 @@ function ServerDetails() {
             name: `${item.ip} (${item.os_name})`, // Display value
           }));
           setIps(formattedData);
+          
        })
        .catch((err) => {
           console.log(err.message);
        });
  }, []);
+
+  useEffect(() => {
+    if (onDataChange) {
+    onDataChange(secList)
+    }
+  },[secList])
 
     const [isVisible, setIsVisible] = useState(false);
     function handleclickvisible() {
@@ -85,8 +93,8 @@ function ServerDetails() {
 
     }
     return (
-        <div style={{ width: '300px', margin: '0 auto', padding: '20px' }}>
-        <h3>Select Options</h3>
+        <div style={{ width: '300px', padding: '0px', textAlign: 'left' }}>
+        <h3 >Select Options</h3>
        
         <Multiselect
           options={ips}
