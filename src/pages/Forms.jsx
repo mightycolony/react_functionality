@@ -5,6 +5,8 @@ import Multiselect from 'multiselect-react-dropdown';
 
 function Forms() {
   const [formData, setFormData] = useState([]);
+  const [popupcontent, setPopupContent] = useState({});
+  const [showpopupcontent, SetShowPopupContent] = useState(false)
 
   const handleDataChange = (data) => {
     const  ipaddress=[]
@@ -59,13 +61,21 @@ function Forms() {
           .then((response) => response.json())
           .then((data) => {
             console.log('Response:', data);
+            setPopupContent(data)
+            SetShowPopupContent(true)
+      
           })
           .catch((err) => {
             console.error('Error:', err.message);
           });
+          console.log(typeof popupcontent)
+
         }
 
+      }
 
+      function onremove() {
+        SetShowPopupContent(false)
       }
 
     
@@ -111,8 +121,49 @@ function Forms() {
                   />
                   <button onClick={(e) => onSumbit(e)}>Submit</button>
         </form>
+   
+            {showpopupcontent && (
+            <div style={{
+              position: 'absolute',
+              top: '200px',
+              left: '500px',
+              backgroundColor: 'white',
+              border: '2px solid #ccc',
+              borderRadius: '12px',
+              padding: '10px',
+              boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
+              zIndex: 10, 
+              width: 'auto',
+              fontWeight: 'bold', 
+              transition: 'all 0.3s ease',
+              overflow: 'hidden',
+              cursor: 'pointer', 
+              
+            }}>
+              <a onClick={onremove} href="#">&times;</a>
+              {Object.entries(popupcontent).map(([key, value]) => (
+                <ul key={key}>
 
+                      <p>IP Address: {key}</p>
+                      {Object.entries(value).map(([nestedKey, nestedValue]) => (
+                        <div key={nestedKey}>
+                            <p >{nestedKey}</p>
+                            {Object.entries(nestedValue).map(([secnestedKey, secnestedValue]) => (
+                              <p>{secnestedKey}{secnestedValue}</p>
+
+                            ))}
+                          </div>
+                      ))}
+                       
+                </ul>
+              ))}
+            </div>
+          )}
+  
+        
     </div>
+
+
   )
 }
 

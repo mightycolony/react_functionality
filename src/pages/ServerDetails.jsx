@@ -18,7 +18,7 @@ function ServerDetails({onDataChange}) {
        .then((data) => {
           const formattedData = data.map((item) => ({
             id: item.id, // unique identifier
-            name: `${item.ip} (${item.os_name})`, // Display value
+            name: `${item.ip} - ${item.os_name}`, // Display value
           }));
           setIps(formattedData);
           
