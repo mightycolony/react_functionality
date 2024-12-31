@@ -1,38 +1,27 @@
-import ServerDetails from "./pages/ServerDetails"
-import NavBar from "./pages/NavBar"
-import Home from "./pages/Home"
-import Forms from "./pages/Forms"
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import ServerDetails from "./pages/ServerDetails";
+import NavBar from "./pages/NavBar";
+import Home from "./pages/Home";
+import Forms from "./pages/Forms";
+import KernelSpace from "./pages/KernelSpace";
+import BluePrint from "./pages/BluePrint";
 
-import KernelSpace from "./pages/KernelSpace"
 function App() {
-  let component
-  switch (window.location.pathname) {
-     case "/":
-          component = <Home/>
-        break 
-          case "/checker":
-            component = <Forms/>
-            break
-          case "/serverdetails":
-            component =<ServerDetails/>
-            break
-               case "/kernelspace":
-      
-                  component = <KernelSpace/>
-                  break 
-                    case "/userspace":
-                      break
-  }
-
   return (
     <>
-    <NavBar/>
-    <div className="container">
-      {component}
-    </div> 
+      <NavBar />
+      <div className="container">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/checker" element={<Forms />} />
+          <Route path="/serverdetails" element={<ServerDetails />} />
+          <Route path="/kernelspace" element={<KernelSpace />} />
+          <Route path="/BluePrint" element={<BluePrint />} />
+        </Routes>
+      </div>
     </>
-
-  )
+  );
 }
 
-export default App
+export default App;

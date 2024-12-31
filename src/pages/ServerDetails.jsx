@@ -119,7 +119,7 @@ function ServerDetails({onDataChange}) {
       </button>
       {isVisible && (
         <form>
-          <input id="ip_address" tpye="string" placeholder='ip address' onChange={(e) => setnewIP(e.target.value)}></input>
+          <input id="ip_address" type="string" placeholder='ip address' onChange={(e) => setnewIP(e.target.value)}></input>
           
           <button onClick={Onadd} type="submit">Submit</button>
         </form>
