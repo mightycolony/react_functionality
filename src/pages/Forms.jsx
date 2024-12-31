@@ -154,7 +154,7 @@ function Forms() {
                     }}
                   />
                   {/* <button onClick={(e) => onSumbit(e)}>Submit</button> */}
-                  {/* <button onClick={ (e) => onNext(e)}>Next</button> */}
+                   {/* <button onClick={ (e) => onNext(e)}>Next</button> */}
                   <div>
                 <h1>Add options to check</h1>
                 {Array.from({ length: items }).map((_, index) => (
