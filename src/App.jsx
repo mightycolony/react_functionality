@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Forms from "./pages/Forms";
 import KernelSpace from "./pages/KernelSpace";
 import BluePrint from "./pages/BluePrint";
+import Foreman from './pages/Foreman';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/serverdetails" element={<ServerDetails />} />
           <Route path="/kernelspace" element={<KernelSpace />} />
           <Route path="/BluePrint" element={<BluePrint />} />
+          <Route path="/Foreman" element={<Foreman/>}/>
         </Routes>
       </div>
     </>

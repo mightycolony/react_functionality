@@ -19,6 +19,9 @@ function NavBar() {
                 <li>
                     <a href="/userpace">userspace</a>
                 </li>
+                <li>
+                    <a href="/Foreman">Foreman_inv</a>
+                </li>
             </ul>
     </nav>
 
