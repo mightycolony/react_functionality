@@ -42,14 +42,18 @@ const Foreman = () => {
       },
         {
           name: "Class",
-
+          selector: row => row.classes,
+          cell: row => (
+            <div style={{ whiteSpace: 'pre-line' }}>
+              {row.classes}
+            </div>
+          ),
         },
 
     ];
     const handleSearch = (e) => {
       const searchValue = e.target.value;
-      console.log("sea",searchValue)
-      console.log(inv)
+
 
       const newRows = inv.filter((row) => {
         return row.ip.includes(searchValue);
@@ -60,7 +64,7 @@ const Foreman = () => {
   return (
     
     <div >
-      <input type="search" placeholder="Search" onChange={(e) => handleSearch(e)}/>
+      <input type="search" placeholder="Search IP" onChange={(e) => handleSearch(e)}/>
       <DataTable 
           columns={columns} 
           data={newinv || []} 
