@@ -39,8 +39,9 @@ function ServerDetails({onDataChange}) {
       setIsVisible(!isVisible)
     }
 
-    function Onadd() {
-      console.log(newIP)
+    function Onadd(e) {
+      e.preventDefault();
+      console.log("test")
       fetch('http://localhost:8080/server_addition', {
         method: 'POST',
         headers: {
@@ -56,6 +57,10 @@ function ServerDetails({onDataChange}) {
         
       })
       .then((response) => response.json())
+      .then(() => {
+        setIsVisible(false); 
+        setnewIP("")
+      })
       .catch((err) => {
         console.log(err.message);
      });
@@ -121,7 +126,7 @@ function ServerDetails({onDataChange}) {
         <form>
           <input id="ip_address" type="string" placeholder='ip address' onChange={(e) => setnewIP(e.target.value)}></input>
           
-          <button onClick={Onadd} type="submit">Submit</button>
+          <button onClick={Onadd} type="submit">add</button>
         </form>
       )}
 
