@@ -23,6 +23,7 @@ function NavBar() {
                     <a href="/Foreman">Foreman_inv</a>
                 </li>
             </ul>
+            
     </nav>
 
 

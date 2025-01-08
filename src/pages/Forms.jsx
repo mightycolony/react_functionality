@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import ServerDetails from './ServerDetails'
 import { useState, useEffect, useRef } from 'react';
 import Multiselect from 'multiselect-react-dropdown';
-import { useNavigate } from 'react-router-dom';
 
 
 function Forms() {
@@ -82,31 +81,13 @@ function Forms() {
         SetShowPopupContent(false)
       }
 
-  // function onNext(e){
-  //     e.preventDefault()
-  //     navigate("/BluePrint")
-  //     console.log("onNext")
-  // }
-  // ---------blueprint--------------
-  function additem() {
+  // ---------------------------
+          //foreman things//
+  
+  
 
-    const parameter = parameterRef.current?.value || "";
-    const value = valueRef.current?.value || "";
-    if (!(value && parameter === "")) {
-        const newdict = { ...prmvalue, [count]: {[parameter]: value }}
-        SetPrmvalue(newdict)
-        SetItems(items+1)
-        SetCount(count+1)
-}
-}
-  function deleteitem(index) {
-      SetItems(items-1)
-      delete prmvalue[index]
-      SetPrmvalue(prmvalue)
-  }
 
   // ---------------------------
-
   return (
     <div style={{ width: '500px', padding: '20px', textAlign: 'left' }} >
         <h2>Enter User and kernel space function</h2>
@@ -145,6 +126,8 @@ function Forms() {
                       searchBox: { border: '1px solid #00bcd4' },
                     }}
                   />
+
+
                    <button onClick={(e) => onSumbit(e)}>Submit</button> 
                    {/* <button onClick={ (e) => onNext(e)}>Next</button> */}
 

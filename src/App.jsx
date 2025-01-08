@@ -7,6 +7,7 @@ import Forms from "./pages/Forms";
 import KernelSpace from "./pages/KernelSpace";
 import BluePrint from "./pages/BluePrint";
 import Foreman from './pages/Foreman';
+import Foreman_render from './pages/Foreman_render';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/kernelspace" element={<KernelSpace />} />
           <Route path="/BluePrint" element={<BluePrint />} />
           <Route path="/Foreman" element={<Foreman/>}/>
+          <Route path="Foreman_render" element={<Foreman_render/>}/>
         </Routes>
       </div>
     </>
